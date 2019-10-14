@@ -14,14 +14,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.下载jadx-gui在terminal中执行下面语句 1234mkdir jadx #创建 jadx目录git clone https://github.com/skylot/jadx.git  #将存储库克隆到目录cd jadx  # 进入 jadx目录./gradlew dist # 执行编译  2.反编译下载题目所给的apk.apk,利用jadx-gui进行反编译，得到如下结果   3.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/Users/lovage/Desktop/ctf/786C51F0-3EF9-4D52-BC89-AC94C9BF0CFB.png">
-<meta property="og:image" content="http://yoursite.com/Users/lovage/Desktop/ctf/5CFA36D4-BAD2-4C89-A541-8B9CF739D6B1.png">
-<meta property="og:image" content="http://yoursite.com/Users/lovage/Desktop/ctf/C83A1F48-4A67-4846-B9A1-81CDEAB7D80F.png">
-<meta property="og:updated_time" content="2019-10-14T09:07:16.678Z">
+<meta property="og:image" content="http://yoursite.com/Users/lovage/Desktop/blog/source/_posts/easy-apk-1/786C51F0-3EF9-4D52-BC89-AC94C9BF0CFB.png">
+<meta property="og:image" content="http://yoursite.com/Users/lovage/Desktop/blog/source/_posts/easy-apk-1/5CFA36D4-BAD2-4C89-A541-8B9CF739D6B1.png">
+<meta property="og:image" content="http://yoursite.com/Users/lovage/Desktop/blog/source/_posts/easy-apk-1/C83A1F48-4A67-4846-B9A1-81CDEAB7D80F.png">
+<meta property="og:updated_time" content="2019-10-14T09:17:07.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="easy-apk">
 <meta name="twitter:description" content="1.下载jadx-gui在terminal中执行下面语句 1234mkdir jadx #创建 jadx目录git clone https://github.com/skylot/jadx.git  #将存储库克隆到目录cd jadx  # 进入 jadx目录./gradlew dist # 执行编译  2.反编译下载题目所给的apk.apk,利用jadx-gui进行反编译，得到如下结果   3.">
-<meta name="twitter:image" content="http://yoursite.com/Users/lovage/Desktop/ctf/786C51F0-3EF9-4D52-BC89-AC94C9BF0CFB.png">
+<meta name="twitter:image" content="http://yoursite.com/Users/lovage/Desktop/blog/source/_posts/easy-apk-1/786C51F0-3EF9-4D52-BC89-AC94C9BF0CFB.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -94,8 +94,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir jadx #创建 jadx目录</span><br><span class="line">git clone https://github.com/skylot/jadx.git  #将存储库克隆到目录</span><br><span class="line">cd jadx  # 进入 jadx目录</span><br><span class="line">./gradlew dist # 执行编译</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-反编译"><a href="#2-反编译" class="headerlink" title="2.反编译"></a>2.反编译</h3><p>下载题目所给的apk.apk,利用jadx-gui进行反编译，得到如下结果</p>
-<p><img src="/Users/lovage/Desktop/ctf/786C51F0-3EF9-4D52-BC89-AC94C9BF0CFB.png" alt="786C51F0-3EF9-4D52-BC89-AC94C9BF0CFB"></p>
-<p><img src="/Users/lovage/Desktop/ctf/5CFA36D4-BAD2-4C89-A541-8B9CF739D6B1.png" alt="5CFA36D4-BAD2-4C89-A541-8B9CF739D6B1"></p>
+<p><img src="/Users/lovage/Desktop/blog/source/_posts/easy-apk-1/786C51F0-3EF9-4D52-BC89-AC94C9BF0CFB.png" alt="786C51F0-3EF9-4D52-BC89-AC94C9BF0CFB"></p>
+<p><img src="/Users/lovage/Desktop/blog/source/_posts/easy-apk-1/5CFA36D4-BAD2-4C89-A541-8B9CF739D6B1.png" alt="5CFA36D4-BAD2-4C89-A541-8B9CF739D6B1"></p>
 <h3 id="3-分析代码"><a href="#3-分析代码" class="headerlink" title="3.分析代码"></a>3.分析代码</h3><p>可知如果 inputString.charAt(i) 如果不等于 (versionCode.charAt(i) ^ versionName) 就会输出”再接再厉，加油~”，因此判断正确的input应使二者相等</p>
 <p>input的长度应和versionCode的长度相等，为15</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static final int VERSION_CODE = 15;</span><br><span class="line">public static final String VERSION_NAME = &quot;X&lt;cP[?PHNB&lt;P?aj&quot;;</span><br><span class="line"></span><br><span class="line">while (i &lt; inputString.length() &amp;&amp; i &lt; versionCode.length()) &#123;</span><br><span class="line">if (inputString.charAt(i) != (versionCode.charAt(i) ^ versionName)) &#123;</span><br><span class="line">Toast.makeText(MainActivity.this, &quot;再接再厉，加油~&quot;, 1).show();</span><br><span class="line">return;</span><br><span class="line">&#125;</span><br><span class="line">i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -103,12 +103,12 @@
 <h3 id="4-运行代码"><a href="#4-运行代码" class="headerlink" title="4.运行代码"></a>4.运行代码</h3><p>根据分析运行以下代码，即可得到答案。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld &#123;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">int versionName = 15;</span><br><span class="line">String versionCode = &quot;X&lt;cP[?PHNB&lt;P?aj&quot;;</span><br><span class="line">for(int i=0;i&lt;versionCode.length();i++) &#123;</span><br><span class="line">System.out.print((char) (versionCode.charAt(i)^versionName));</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Users/lovage/Desktop/ctf/C83A1F48-4A67-4846-B9A1-81CDEAB7D80F.png" alt="C83A1F48-4A67-4846-B9A1-81CDEAB7D80F"></p>
+<p><img src="/Users/lovage/Desktop/blog/source/_posts/easy-apk-1/C83A1F48-4A67-4846-B9A1-81CDEAB7D80F.png" alt="C83A1F48-4A67-4846-B9A1-81CDEAB7D80F"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/14/easy-apk/" data-id="ck1q7clt60003shv29ar9zcma" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/14/easy-apk/" data-id="ck1q7ft3v0001tav26me74b95" class="article-share-link">Share</a>
       
       
     </footer>
