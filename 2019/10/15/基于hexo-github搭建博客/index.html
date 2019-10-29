@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://sym0320.github.io/2019/10/15/基于hexo-github搭建博客/a.png">
 <meta property="og:image" content="http://sym0320.github.io/2019/10/15/基于hexo-github搭建博客/b.png">
 <meta property="og:image" content="http://sym0320.github.io/2019/10/15/基于hexo-github搭建博客/c.png">
-<meta property="og:updated_time" content="2019-10-15T14:34:26.269Z">
+<meta property="og:updated_time" content="2019-10-27T11:18:26.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于hexo+github搭建博客">
 <meta name="twitter:description" content="一、准备工作1.node用来生成静态页面，去官网下载一个就好了 2.git把本地的hexo内容提交到github上去 一是安装homebrew，然后通过homebrew安装Git，具体方法请参考homebrew的文档：http://brew.sh/。 二是Xcode集成了Git,可以在Xcode中安装，不过我用了第一种。 3.github登录自己的Github账号（没有需要可以注册一个，蛮简单的）">
@@ -239,7 +239,7 @@
     <link itemprop="mainEntityOfPage" href="http://sym0320.github.io/2019/10/15/基于hexo-github搭建博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sam">
+      <meta itemprop="name" content="sym">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -343,29 +343,13 @@
 <p>命令执行成功后，打开 <a href="http://sym0320.github.io">http://sym0320.github.io</a> 会出现和 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 时一样的页面。</p>
 <p>哈哈哈哈就是他了</p>
 <p><img src="//sym0320.github.io/2019/10/15/基于hexo-github搭建博客/c.png" alt></p>
-<h3 id="五、发布文章"><a href="#五、发布文章" class="headerlink" title="五、发布文章"></a>五、发布文章</h3><h4 id="1-新建-md文件"><a href="#1-新建-md文件" class="headerlink" title="1.新建.md文件"></a>1.新建.md文件</h4><p>cd到blog文件夹下，执行</p>
+<h3 id="五、发布文章"><a href="#五、发布文章" class="headerlink" title="五、发布文章"></a>五、发布文章</h3><h4 id="新建-md文件"><a href="#新建-md文件" class="headerlink" title="新建.md文件"></a>新建.md文件</h4><p>cd到blog文件夹下，执行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;xxx&quot;</span><br></pre></td></tr></table></figure>
 
 <p>就会在source/_posts下生成xxx.md</p>
 <p>文章编辑完成后，执行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-图片加载不出来的问题"><a href="#2-图片加载不出来的问题" class="headerlink" title="2.图片加载不出来的问题"></a>2.图片加载不出来的问题</h4><h5 id="1-安装一个图片路径转换的插件"><a href="#1-安装一个图片路径转换的插件" class="headerlink" title="1.安装一个图片路径转换的插件"></a>1.安装一个图片路径转换的插件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-修改一些东西"><a href="#2-修改一些东西" class="headerlink" title="2.修改一些东西"></a>2.修改一些东西</h5><p>打开/node_modules/hexo-asset-image/index.js，将内容更换为下面的代码</p>
-<p>嘛意思我也不懂</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line">var cheerio = require(&apos;cheerio&apos;);</span><br><span class="line"></span><br><span class="line">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span><br><span class="line">function getPosition(str, m, i) &#123;</span><br><span class="line">return str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var version = String(hexo.version).split(&apos;.&apos;);</span><br><span class="line">hexo.extend.filter.register(&apos;after_post_render&apos;, function(data)&#123;</span><br><span class="line">var config = hexo.config;</span><br><span class="line">if(config.post_asset_folder)&#123;</span><br><span class="line">var link = data.permalink;</span><br><span class="line">if(version.length &gt; 0 &amp;&amp; Number(version[0]) == 3)</span><br><span class="line">var beginPos = getPosition(link, &apos;/&apos;, 1) + 1;</span><br><span class="line">else</span><br><span class="line">var beginPos = getPosition(link, &apos;/&apos;, 3) + 1;</span><br><span class="line">// In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;.../about/index.html&quot;.</span><br><span class="line">var endPos = link.lastIndexOf(&apos;/&apos;) + 1;</span><br><span class="line">link = link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">var toprocess = [&apos;excerpt&apos;, &apos;more&apos;, &apos;content&apos;];</span><br><span class="line">for(var i = 0; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">var key = toprocess[i];</span><br><span class="line"></span><br><span class="line">var $ = cheerio.load(data[key], &#123;</span><br><span class="line">ignoreWhitespace: false,</span><br><span class="line">xmlMode: false,</span><br><span class="line">lowerCaseTags: false,</span><br><span class="line">decodeEntities: false</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$(&apos;img&apos;).each(function()&#123;</span><br><span class="line">if ($(this).attr(&apos;src&apos;))&#123;</span><br><span class="line">// For windows style path, we replace &apos;\&apos; to &apos;/&apos;.</span><br><span class="line">var src = $(this).attr(&apos;src&apos;).replace(&apos;\\&apos;, &apos;/&apos;);</span><br><span class="line">if(!/http[s]*.*|\/\/.*/.test(src) &amp;&amp;</span><br><span class="line">!/^\s*\//.test(src)) &#123;</span><br><span class="line">// For &quot;about&quot; page, the first part of &quot;src&quot; can&apos;t be removed.</span><br><span class="line">// In addition, to support multi-level local directory.</span><br><span class="line">var linkArray = link.split(&apos;/&apos;).filter(function(elem)&#123;</span><br><span class="line">return elem != &apos;&apos;;</span><br><span class="line">&#125;);</span><br><span class="line">var srcArray = src.split(&apos;/&apos;).filter(function(elem)&#123;</span><br><span class="line">return elem != &apos;&apos; &amp;&amp; elem != &apos;.&apos;;</span><br><span class="line">&#125;);</span><br><span class="line">if(srcArray.length &gt; 1)</span><br><span class="line">srcArray.shift();</span><br><span class="line">src = srcArray.join(&apos;/&apos;);</span><br><span class="line">$(this).attr(&apos;src&apos;, config.root + link + src);</span><br><span class="line">console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span><br><span class="line">&#125;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span><br><span class="line">console.info&amp;&amp;console.info($(this));</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">data[key] = $.html();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-修改-config-yml"><a href="#3-修改-config-yml" class="headerlink" title="3.修改_config.yml"></a>3.修改_config.yml</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line"></span><br><span class="line">#URL</span><br><span class="line">url: http://sym0320.github.io</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-插入图片"><a href="#4-插入图片" class="headerlink" title="4.插入图片"></a>4.插入图片</h5><p>在source目录下新建一个和.md名称一样的文件夹放图片</p>
-<p>不用markdown的语法，用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](文件夹名/图片名.png)</span><br></pre></td></tr></table></figure>
-
-<p>就很快乐的解决了问题</p>
-<p>嘻嘻</p>
-<h4 id="六、更换主题"><a href="#六、更换主题" class="headerlink" title="六、更换主题"></a>六、更换主题</h4><p>去这里 <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a> 寻找喜欢的主题</p>
-<p>感觉差不多就这些了，想起什么再讲8</p>
 
       
     </div>
@@ -399,6 +383,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/29/Linux/" rel="prev" title="Linux">
+                Linux <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -464,7 +452,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">Sam</p>
+              <p class="site-author-name" itemprop="name">sym</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -475,7 +463,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -512,7 +500,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、准备工作"><span class="nav-number">1.</span> <span class="nav-text">一、准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-node"><span class="nav-number">1.1.</span> <span class="nav-text">1.node</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-git"><span class="nav-number">1.2.</span> <span class="nav-text">2.git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-github"><span class="nav-number">1.3.</span> <span class="nav-text">3.github</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、安装hexo"><span class="nav-number">2.</span> <span class="nav-text">二、安装hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#终端执行命令"><span class="nav-number">2.1.</span> <span class="nav-text">终端执行命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、初始化"><span class="nav-number">3.</span> <span class="nav-text">三、初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、创建仓库"><span class="nav-number">4.</span> <span class="nav-text">四、创建仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-vim打开-config-yml"><span class="nav-number">4.1.</span> <span class="nav-text">1.vim打开_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-执行生成静态页面命令"><span class="nav-number">4.2.</span> <span class="nav-text">2.执行生成静态页面命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-配置命令"><span class="nav-number">4.3.</span> <span class="nav-text">3.配置命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、发布文章"><span class="nav-number">5.</span> <span class="nav-text">五、发布文章</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-新建-md文件"><span class="nav-number">5.1.</span> <span class="nav-text">1.新建.md文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-图片加载不出来的问题"><span class="nav-number">5.2.</span> <span class="nav-text">2.图片加载不出来的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-安装一个图片路径转换的插件"><span class="nav-number">5.2.1.</span> <span class="nav-text">1.安装一个图片路径转换的插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-修改一些东西"><span class="nav-number">5.2.2.</span> <span class="nav-text">2.修改一些东西</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-修改-config-yml"><span class="nav-number">5.2.3.</span> <span class="nav-text">3.修改_config.yml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-插入图片"><span class="nav-number">5.2.4.</span> <span class="nav-text">4.插入图片</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、更换主题"><span class="nav-number">5.3.</span> <span class="nav-text">六、更换主题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、准备工作"><span class="nav-number">1.</span> <span class="nav-text">一、准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-node"><span class="nav-number">1.1.</span> <span class="nav-text">1.node</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-git"><span class="nav-number">1.2.</span> <span class="nav-text">2.git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-github"><span class="nav-number">1.3.</span> <span class="nav-text">3.github</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、安装hexo"><span class="nav-number">2.</span> <span class="nav-text">二、安装hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#终端执行命令"><span class="nav-number">2.1.</span> <span class="nav-text">终端执行命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、初始化"><span class="nav-number">3.</span> <span class="nav-text">三、初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、创建仓库"><span class="nav-number">4.</span> <span class="nav-text">四、创建仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-vim打开-config-yml"><span class="nav-number">4.1.</span> <span class="nav-text">1.vim打开_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-执行生成静态页面命令"><span class="nav-number">4.2.</span> <span class="nav-text">2.执行生成静态页面命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-配置命令"><span class="nav-number">4.3.</span> <span class="nav-text">3.配置命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、发布文章"><span class="nav-number">5.</span> <span class="nav-text">五、发布文章</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建-md文件"><span class="nav-number">5.1.</span> <span class="nav-text">新建.md文件</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -536,7 +524,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Sam</span>
+  <span class="author" itemprop="copyrightHolder">sym</span>
 
   
 </div>
